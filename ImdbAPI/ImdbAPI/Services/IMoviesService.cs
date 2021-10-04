@@ -9,6 +9,6 @@ namespace ImdbAPI.Services
 {
     public interface IMoviesService
     {
-        Task<IEnumerable<MoviesResponse>> GetMovies(string search);
+        Task<IEnumerable<MoviesResponse>> GetMovies(string search, int num);
     }
 }

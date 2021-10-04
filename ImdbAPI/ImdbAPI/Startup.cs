@@ -38,6 +38,7 @@ namespace ImdbAPI
             options.UseNpgsql(Configuration.GetConnectionString("DBConnection")));
             services.AddControllers();
             services.AddScoped<IMoviesService, MoviesService>();
+            services.AddScoped<IRatingsService, RatingsService>();
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "ImdbAPI", Version = "v1" });
