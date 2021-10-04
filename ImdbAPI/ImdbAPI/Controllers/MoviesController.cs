@@ -20,9 +20,9 @@ namespace ImdbAPI.Controllers
         }
         // GET: api/<MovieController>
         [HttpGet]
-        public IEnumerable<string> Get()
+        public async Task<ActionResult> GetMovies([FromQuery] string search)
         {
-            return new string[] { "value1", "value2" };
+            return Ok(await _moviesService.GetMovies(search));
         }
 
         // GET api/<MovieController>/5

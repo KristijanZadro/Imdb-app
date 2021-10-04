@@ -1,15 +1,14 @@
-﻿using ImdbAPI.Models.Base;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace ImdbAPI.Models
+namespace ImdbAPI.Response
 {
-    public class Actor : BaseEntity
+    public class ActorsResponse
     {
+        public int Id { get; set; }
         public string Name { get; set; }
         public string Surname { get; set; }
-        public IEnumerable<MovieActor> Cast { get; set; }
     }
 }
