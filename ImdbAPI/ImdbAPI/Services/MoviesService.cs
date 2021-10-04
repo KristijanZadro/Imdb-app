@@ -80,7 +80,7 @@ namespace ImdbAPI.Services
             || ((search.Contains("stars") && num >= 1 && ((operation.Equals("<") && x.AverageRating <= num) || (operation.Equals(">") && x.AverageRating >= num) || (operation.Equals("=") && x.AverageRating == num)))
             || (search.Contains("years") && num >= 1 && ((operation.Equals("<") && x.ReleaseDate.Year < DateTime.Now.Year - num) || (operation.Equals(">") && x.ReleaseDate.Year > DateTime.Now.Year - num)))
             || (num >= 1000 && ((operation.Equals("<") && x.ReleaseDate.Year < num) || (operation.Equals(">") && x.ReleaseDate.Year > num)))
-            || (x.Description.Contains(search) || x.ReleaseDate.Year == num || x.Title.Contains(search))
+            || (x.Description.Contains(search) || x.ReleaseDate.Year == num || x.Title.ToLower().Contains(search))
             );
         }
     }
