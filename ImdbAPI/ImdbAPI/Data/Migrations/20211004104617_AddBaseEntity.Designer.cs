@@ -3,15 +3,17 @@ using System;
 using ImdbAPI.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 namespace ImdbAPI.Data.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20211004104617_AddBaseEntity")]
+    partial class AddBaseEntity
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -58,9 +60,6 @@ namespace ImdbAPI.Data.Migrations
                         .HasColumnType("integer")
                         .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn);
 
-                    b.Property<double>("AverageRating")
-                        .HasColumnType("double precision");
-
                     b.Property<string>("CoverImage")
                         .HasColumnType("text");
 
@@ -81,7 +80,6 @@ namespace ImdbAPI.Data.Migrations
                         new
                         {
                             Id = 1,
-                            AverageRating = 8.4000000000000004,
                             CoverImage = "http://slika.jpeg",
                             Description = "ovo je desc",
                             ReleaseDate = new DateTime(2011, 6, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -90,7 +88,6 @@ namespace ImdbAPI.Data.Migrations
                         new
                         {
                             Id = 2,
-                            AverageRating = 9.0999999999999996,
                             CoverImage = "http://slika.jpeg",
                             Description = "ovo je desc",
                             ReleaseDate = new DateTime(2000, 3, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -135,52 +132,6 @@ namespace ImdbAPI.Data.Migrations
                         });
                 });
 
-            modelBuilder.Entity("ImdbAPI.Models.Rating", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("integer")
-                        .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn);
-
-                    b.Property<int>("MovieId")
-                        .HasColumnType("integer");
-
-                    b.Property<int>("StarRating")
-                        .HasColumnType("integer");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("MovieId");
-
-                    b.ToTable("Ratings");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            MovieId = 1,
-                            StarRating = 7
-                        },
-                        new
-                        {
-                            Id = 2,
-                            MovieId = 2,
-                            StarRating = 7
-                        },
-                        new
-                        {
-                            Id = 3,
-                            MovieId = 1,
-                            StarRating = 6
-                        },
-                        new
-                        {
-                            Id = 4,
-                            MovieId = 2,
-                            StarRating = 9
-                        });
-                });
-
             modelBuilder.Entity("ImdbAPI.Models.MovieActor", b =>
                 {
                     b.HasOne("ImdbAPI.Models.Actor", "Actor")
@@ -200,17 +151,6 @@ namespace ImdbAPI.Data.Migrations
                     b.Navigation("Movie");
                 });
 
-            modelBuilder.Entity("ImdbAPI.Models.Rating", b =>
-                {
-                    b.HasOne("ImdbAPI.Models.Movie", "Movie")
-                        .WithMany("Ratings")
-                        .HasForeignKey("MovieId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Movie");
-                });
-
             modelBuilder.Entity("ImdbAPI.Models.Actor", b =>
                 {
                     b.Navigation("Cast");
@@ -219,8 +159,6 @@ namespace ImdbAPI.Data.Migrations
             modelBuilder.Entity("ImdbAPI.Models.Movie", b =>
                 {
                     b.Navigation("Cast");
-
-                    b.Navigation("Ratings");
                 });
 #pragma warning restore 612, 618
         }
