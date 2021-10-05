@@ -1,0 +1,12 @@
+.mediasContainer{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.mediasList{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
