@@ -1,12 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
+﻿using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
-using ImdbAPI.Data;
-using ImdbAPI.Models;
+using ImdbAPI.Services;
 
 namespace ImdbAPI.Controllers
 {
@@ -14,95 +8,23 @@ namespace ImdbAPI.Controllers
     [ApiController]
     public class RatingsController : ControllerBase
     {
-        private readonly AppDbContext _context;
+        private readonly IRatingsService _ratingsService;
 
-        public RatingsController(AppDbContext context)
+        public RatingsController(IRatingsService ratingsService)
         {
-            _context = context;
-        }
-
-        // GET: api/Ratings
-        [HttpGet]
-        public async Task<ActionResult<IEnumerable<Rating>>> GetRatings()
-        {
-            return await _context.Ratings.ToListAsync();
-        }
-
-        // GET: api/Ratings/5
-        [HttpGet("{id}")]
-        public async Task<ActionResult<Rating>> GetRating(int id)
-        {
-            var rating = await _context.Ratings.FindAsync(id);
-
-            if (rating == null)
-            {
-                return NotFound();
-            }
-
-            return rating;
-        }
-
-        // PUT: api/Ratings/5
-        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
-        [HttpPut("{id}")]
-        public async Task<IActionResult> PutRating(int id, Rating rating)
-        {
-            if (id != rating.Id)
-            {
-                return BadRequest();
-            }
-
-            _context.Entry(rating).State = EntityState.Modified;
-
-            try
-            {
-                await _context.SaveChangesAsync();
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                if (!RatingExists(id))
-                {
-                    return NotFound();
-                }
-                else
-                {
-                    throw;
-                }
-            }
-
-            return NoContent();
+            _ratingsService = ratingsService;
         }
 
         // POST: api/Ratings
-        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
-        public async Task<ActionResult<Rating>> PostRating(Rating rating)
+        public async Task<ActionResult> PostRating([FromQuery] int rating, [FromQuery] int mediaId)
         {
-            _context.Ratings.Add(rating);
-            await _context.SaveChangesAsync();
-
-            return CreatedAtAction("GetRating", new { id = rating.Id }, rating);
-        }
-
-        // DELETE: api/Ratings/5
-        [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteRating(int id)
-        {
-            var rating = await _context.Ratings.FindAsync(id);
-            if (rating == null)
+            var response = await _ratingsService.PostRating(rating, mediaId);
+            if (!response)
             {
-                return NotFound();
+                return BadRequest();
             }
-
-            _context.Ratings.Remove(rating);
-            await _context.SaveChangesAsync();
-
-            return NoContent();
-        }
-
-        private bool RatingExists(int id)
-        {
-            return _context.Ratings.Any(e => e.Id == id);
+            return Ok();
         }
     }
 }
