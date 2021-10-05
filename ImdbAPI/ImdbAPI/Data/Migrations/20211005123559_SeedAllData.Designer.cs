@@ -3,15 +3,17 @@ using System;
 using ImdbAPI.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 namespace ImdbAPI.Data.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20211005123559_SeedAllData")]
+    partial class SeedAllData
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -133,7 +135,7 @@ namespace ImdbAPI.Data.Migrations
                         {
                             Id = 1,
                             AverageRating = 8.4000000000000004,
-                            CoverImage = "movie.jpg",
+                            CoverImage = "http://slika.jpeg",
                             Description = "ovo je desc",
                             GroupType = 1,
                             ReleaseDate = new DateTime(2011, 6, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -143,7 +145,7 @@ namespace ImdbAPI.Data.Migrations
                         {
                             Id = 2,
                             AverageRating = 9.0999999999999996,
-                            CoverImage = "movie.jpg",
+                            CoverImage = "http://slika.jpeg",
                             Description = "ovo je desc",
                             GroupType = 1,
                             ReleaseDate = new DateTime(2000, 3, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -153,7 +155,7 @@ namespace ImdbAPI.Data.Migrations
                         {
                             Id = 3,
                             AverageRating = 8.0999999999999996,
-                            CoverImage = "movie.jpg",
+                            CoverImage = "http://slika.jpeg",
                             Description = "ovo je desc",
                             GroupType = 1,
                             ReleaseDate = new DateTime(2005, 3, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -163,7 +165,7 @@ namespace ImdbAPI.Data.Migrations
                         {
                             Id = 4,
                             AverageRating = 9.5,
-                            CoverImage = "movie.jpg",
+                            CoverImage = "http://slika.jpeg",
                             Description = "ovo je desc",
                             GroupType = 1,
                             ReleaseDate = new DateTime(2002, 3, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -173,7 +175,7 @@ namespace ImdbAPI.Data.Migrations
                         {
                             Id = 5,
                             AverageRating = 10.0,
-                            CoverImage = "movie.jpg",
+                            CoverImage = "http://slika.jpeg",
                             Description = "ovo je desc",
                             GroupType = 1,
                             ReleaseDate = new DateTime(2018, 3, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -183,7 +185,7 @@ namespace ImdbAPI.Data.Migrations
                         {
                             Id = 6,
                             AverageRating = 7.5,
-                            CoverImage = "movie.jpg",
+                            CoverImage = "http://slika.jpeg",
                             Description = "ovo je desc",
                             GroupType = 1,
                             ReleaseDate = new DateTime(1990, 3, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -193,7 +195,7 @@ namespace ImdbAPI.Data.Migrations
                         {
                             Id = 7,
                             AverageRating = 9.3000000000000007,
-                            CoverImage = "movie.jpg",
+                            CoverImage = "http://slika.jpeg",
                             Description = "ovo je desc",
                             GroupType = 1,
                             ReleaseDate = new DateTime(1995, 3, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -203,7 +205,7 @@ namespace ImdbAPI.Data.Migrations
                         {
                             Id = 8,
                             AverageRating = 8.9000000000000004,
-                            CoverImage = "movie.jpg",
+                            CoverImage = "http://slika.jpeg",
                             Description = "ovo je desc",
                             GroupType = 1,
                             ReleaseDate = new DateTime(1998, 3, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -213,7 +215,7 @@ namespace ImdbAPI.Data.Migrations
                         {
                             Id = 9,
                             AverageRating = 9.6999999999999993,
-                            CoverImage = "movie.jpg",
+                            CoverImage = "http://slika.jpeg",
                             Description = "ovo je desc",
                             GroupType = 1,
                             ReleaseDate = new DateTime(2016, 3, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -223,7 +225,7 @@ namespace ImdbAPI.Data.Migrations
                         {
                             Id = 10,
                             AverageRating = 9.1999999999999993,
-                            CoverImage = "movie.jpg",
+                            CoverImage = "http://slika.jpeg",
                             Description = "ovo je desc",
                             GroupType = 1,
                             ReleaseDate = new DateTime(2020, 3, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -233,7 +235,7 @@ namespace ImdbAPI.Data.Migrations
                         {
                             Id = 11,
                             AverageRating = 9.9000000000000004,
-                            CoverImage = "movie.jpg",
+                            CoverImage = "http://slika.jpeg",
                             Description = "ovo je desc",
                             GroupType = 1,
                             ReleaseDate = new DateTime(1989, 3, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -243,7 +245,7 @@ namespace ImdbAPI.Data.Migrations
                         {
                             Id = 12,
                             AverageRating = 9.5999999999999996,
-                            CoverImage = "movie.jpg",
+                            CoverImage = "http://slika.jpeg",
                             Description = "ovo je desc",
                             GroupType = 1,
                             ReleaseDate = new DateTime(2000, 3, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -253,7 +255,7 @@ namespace ImdbAPI.Data.Migrations
                         {
                             Id = 13,
                             AverageRating = 9.0999999999999996,
-                            CoverImage = "show.jpg",
+                            CoverImage = "http://slika.jpeg",
                             Description = "ovo je desc",
                             GroupType = 2,
                             ReleaseDate = new DateTime(2000, 3, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -263,7 +265,7 @@ namespace ImdbAPI.Data.Migrations
                         {
                             Id = 14,
                             AverageRating = 9.4000000000000004,
-                            CoverImage = "show.jpg",
+                            CoverImage = "http://slika.jpeg",
                             Description = "ovo je desc",
                             GroupType = 2,
                             ReleaseDate = new DateTime(2010, 3, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -273,7 +275,7 @@ namespace ImdbAPI.Data.Migrations
                         {
                             Id = 15,
                             AverageRating = 8.0,
-                            CoverImage = "show.jpg",
+                            CoverImage = "http://slika.jpeg",
                             Description = "ovo je desc",
                             GroupType = 2,
                             ReleaseDate = new DateTime(2008, 3, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -283,7 +285,7 @@ namespace ImdbAPI.Data.Migrations
                         {
                             Id = 16,
                             AverageRating = 8.9000000000000004,
-                            CoverImage = "show.jpg",
+                            CoverImage = "http://slika.jpeg",
                             Description = "ovo je desc",
                             GroupType = 2,
                             ReleaseDate = new DateTime(2015, 3, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -293,7 +295,7 @@ namespace ImdbAPI.Data.Migrations
                         {
                             Id = 17,
                             AverageRating = 3.5,
-                            CoverImage = "show.jpg",
+                            CoverImage = "http://slika.jpeg",
                             Description = "ovo je desc",
                             GroupType = 2,
                             ReleaseDate = new DateTime(2013, 3, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -303,7 +305,7 @@ namespace ImdbAPI.Data.Migrations
                         {
                             Id = 18,
                             AverageRating = 8.5999999999999996,
-                            CoverImage = "show.jpg",
+                            CoverImage = "http://slika.jpeg",
                             Description = "ovo je desc",
                             GroupType = 2,
                             ReleaseDate = new DateTime(2005, 3, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -313,7 +315,7 @@ namespace ImdbAPI.Data.Migrations
                         {
                             Id = 19,
                             AverageRating = 8.4000000000000004,
-                            CoverImage = "show.jpg",
+                            CoverImage = "http://slika.jpeg",
                             Description = "ovo je desc",
                             GroupType = 2,
                             ReleaseDate = new DateTime(2019, 3, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -323,7 +325,7 @@ namespace ImdbAPI.Data.Migrations
                         {
                             Id = 20,
                             AverageRating = 9.6999999999999993,
-                            CoverImage = "show.jpg",
+                            CoverImage = "http://slika.jpeg",
                             Description = "ovo je desc",
                             GroupType = 2,
                             ReleaseDate = new DateTime(2020, 3, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -333,7 +335,7 @@ namespace ImdbAPI.Data.Migrations
                         {
                             Id = 21,
                             AverageRating = 8.6999999999999993,
-                            CoverImage = "show.jpg",
+                            CoverImage = "http://slika.jpeg",
                             Description = "ovo je desc",
                             GroupType = 2,
                             ReleaseDate = new DateTime(2017, 3, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -343,7 +345,7 @@ namespace ImdbAPI.Data.Migrations
                         {
                             Id = 22,
                             AverageRating = 9.9000000000000004,
-                            CoverImage = "show.jpg",
+                            CoverImage = "http://slika.jpeg",
                             Description = "ovo je desc",
                             GroupType = 2,
                             ReleaseDate = new DateTime(2013, 3, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -353,7 +355,7 @@ namespace ImdbAPI.Data.Migrations
                         {
                             Id = 23,
                             AverageRating = 8.0999999999999996,
-                            CoverImage = "show.jpg",
+                            CoverImage = "http://slika.jpeg",
                             Description = "ovo je desc",
                             GroupType = 2,
                             ReleaseDate = new DateTime(2014, 3, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -363,7 +365,7 @@ namespace ImdbAPI.Data.Migrations
                         {
                             Id = 24,
                             AverageRating = 10.0,
-                            CoverImage = "show.jpg",
+                            CoverImage = "http://slika.jpeg",
                             Description = "ovo je desc",
                             GroupType = 2,
                             ReleaseDate = new DateTime(2008, 3, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),

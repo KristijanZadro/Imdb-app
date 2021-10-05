@@ -3,15 +3,17 @@ using System;
 using ImdbAPI.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 namespace ImdbAPI.Data.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20211005163026_addCoverImage")]
+    partial class addCoverImage
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -203,7 +205,7 @@ namespace ImdbAPI.Data.Migrations
                         {
                             Id = 8,
                             AverageRating = 8.9000000000000004,
-                            CoverImage = "movie.jpg",
+                            CoverImage = "http://slika.jpeg",
                             Description = "ovo je desc",
                             GroupType = 1,
                             ReleaseDate = new DateTime(1998, 3, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
