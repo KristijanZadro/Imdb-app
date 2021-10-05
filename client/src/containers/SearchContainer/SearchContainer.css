@@ -1,0 +1,29 @@
+.searchContainer{
+    display: flex;
+    justify-content: center;
+}
+
+.searchBox{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 50px;
+    margin-bottom: 20px;
+}
+
+.searchField{
+    display: flex;
+    align-items: center;
+}
+
+.searchButton{
+    margin-right: 10px;
+}
+
+.errorMsg{
+    color: red;
+    text-align: center;
+    height: 20px;
+    width: 200px;
+    overflow-wrap: break-word;
+}
