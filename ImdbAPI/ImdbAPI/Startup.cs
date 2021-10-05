@@ -2,18 +2,11 @@ using ImdbAPI.Data;
 using ImdbAPI.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace ImdbAPI
 {
@@ -37,7 +30,7 @@ namespace ImdbAPI
             services.AddDbContext<AppDbContext>(options =>
             options.UseNpgsql(Configuration.GetConnectionString("DBConnection")));
             services.AddControllers();
-            services.AddScoped<IMoviesService, MoviesService>();
+            services.AddScoped<IMediasService, MediasService>();
             services.AddScoped<IRatingsService, RatingsService>();
             services.AddSwaggerGen(c =>
             {
@@ -62,6 +55,8 @@ namespace ImdbAPI
             app.UseRouting();
 
             app.UseAuthorization();
+
+            app.UseStaticFiles();
 
             app.UseEndpoints(endpoints =>
             {
