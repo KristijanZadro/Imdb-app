@@ -1,12 +1,10 @@
 ﻿using ImdbAPI.Models;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace ImdbAPI.Response
 {
-    public class MoviesResponse
+    public class MediasResponse
     {
         public int Id { get; set; }
         public string Title { get; set; }
